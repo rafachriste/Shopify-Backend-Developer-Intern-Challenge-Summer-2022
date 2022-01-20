@@ -20,6 +20,6 @@ Build an inventory tracking web application for a logistics company. We are look
 ## Instructions
 
  - To create inventory products use "/newProduct" path
- - To read a inventory product use "/findProduct" path\
+ - To read a inventory product use "/findProduct" path
  - To delete invetory products use "deleteProduct" path
  - To get inventory inventory products use "/listAll" path
