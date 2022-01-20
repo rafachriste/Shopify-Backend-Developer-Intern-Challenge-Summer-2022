@@ -6,10 +6,7 @@ import lombok.extern.apachecommons.CommonsLog;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -35,6 +32,18 @@ public class WebController {
         return "findProduct";
     }
 
+
+    @GetMapping("listAll")
+    public String listAll(){
+        return "listAll";
+    }
+
+    @GetMapping("deleteProduct")
+    public String delete(Model model){
+        model.addAttribute("product", new Product());
+        return "deleteProduct";
+    }
+
     @PostMapping("save")
     public String save(@ModelAttribute Product product, Model model) {
         try {
@@ -57,5 +66,13 @@ public class WebController {
             return "productView";
         }
         return "error";
+    }
+
+    @DeleteMapping(value = "delete", params = {"productId"})
+    public void delete(@ModelAttribute Product product) {
+        if(productRepository.findById(product.getProductId()).isPresent()){
+            productRepository.deleteById(product.getProductId());
+        }
+
     }
 }

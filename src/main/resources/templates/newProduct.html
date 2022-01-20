@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<h1>Form</h1>
+<h1>Add a new product</h1>
 <form action="#" th:action="@{/save}" th:object="${product}" method="post">
     <p>Name: <input type="text" th:field="*{productName}"/></p>
     <p>Price: <input type="text" th:field="*{productPrice}"/></p>

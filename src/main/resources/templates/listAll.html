@@ -5,10 +5,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<h1>Product</h1>
-<form action="#" th:action="@{/get}" th:object="${product}" method="get">
-    <p>Id: <input type="text" th:field="*{productId}"/></p>
-    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+<h1>Inventory</h1>
+<form action="#" th:action="@{/api/inventory}" method="get">
+    <p><input type="submit" value="Submit"/>
 </form>
 </body>
 </html>

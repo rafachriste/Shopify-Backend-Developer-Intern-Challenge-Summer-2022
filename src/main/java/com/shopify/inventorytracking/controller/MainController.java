@@ -50,14 +50,10 @@ public class MainController {
         return ResponseEntity.badRequest().body("Product not found");
     }
 
-    @DeleteMapping(value = "delete", params = {"productId"})
-    public ResponseEntity<?> delete(@RequestParam Long productId) {
-        if(productRepository.findById(productId).isPresent()){
-            productRepository.deleteById(productId);
-            return ResponseEntity.ok("Deleted Successfully");
-        }
+    @DeleteMapping(value = "delete")
+    public void delete(@ModelAttribute Product product) {
+        productRepository.deleteById(product.getProductId());
 
-        return ResponseEntity.badRequest().body("Product not found");
     }
 
     @GetMapping("inventory")
